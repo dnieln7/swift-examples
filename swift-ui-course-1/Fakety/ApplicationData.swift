@@ -9,7 +9,6 @@ import Observation
 import SwiftUI
 
 @Observable class ApplicationData {
-    var string: String = "default"
     var books: [Book] = []
     var items: [MainItems] = []
     var listOfItems: [ConsumableItem] = []

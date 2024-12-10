@@ -1,5 +1,5 @@
 //
-//  NavigationLinkView.swift
+//  NavigationRoot.swift
 //  Fakety
 //
 //  Created by Daniel Nolasco on 23/10/24.
@@ -7,16 +7,10 @@
 
 import SwiftUI
 
-struct NavigationLinkView: View {
+struct NavigationRoot: View {
     var body: some View {
         WithNavigationPath()
     }
-}
-
-// Can also include the book detail destination and save the book in the model
-fileprivate enum Destinations {
-    case toggle
-    case settings
 }
 
 fileprivate struct WithNavigationPath: View {
@@ -108,33 +102,7 @@ fileprivate struct WithToolbar: View {
     }
 }
 
-struct SettingsView: View {
-    @Binding var navigationPath: NavigationPath
-    
-    var body: some View {
-        VStack {
-            Text("Settings will be here...")
-        }
-        .navigationTitle("Settings")
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button("Close") {
-                    navigationPath.removeLast()
-                }
-            }
-            ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink(
-                    value: Destinations.toggle,
-                    label: {
-                        Image(systemName: "pencil")
-                    }
-                )
-            }
-        }
-    }
-}
-
 #Preview {
-    NavigationLinkView()
+    NavigationRoot()
         .environment(ApplicationData())
 }

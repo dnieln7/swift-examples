@@ -24,9 +24,10 @@ struct BindingStructuresView: View {
 //                .padding()
 //                .border(.black, width: 2)
 //                .padding()
-            HeaderView2(title: $title, input: _input.projectedValue)
+            HeaderView2(title: $title, input: $input)
             Button(
-                action: { _title.wrappedValue = _input.wrappedValue },
+//                action: { _title.wrappedValue = _input.wrappedValue },
+                action: { title = input },
                 label: { Text("Change") }
             )
             Spacer()

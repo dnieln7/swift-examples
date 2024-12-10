@@ -1,5 +1,5 @@
 //
-//  EventsAndCustomModifiersView.swift
+//  CustomModifiersView.swift
 //  Fakety
 //
 //  Created by Daniel Nolasco on 07/10/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EventsAndCustomModifiersView: View {
+struct CustomModifiersView: View {
     var body: some View {
         VStack {
             Text("on Appear")
@@ -46,5 +46,5 @@ struct RedModifier: ViewModifier {
 }
 
 #Preview {
-    EventsAndCustomModifiersView()
+    CustomModifiersView()
 }

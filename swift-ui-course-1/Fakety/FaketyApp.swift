@@ -15,7 +15,7 @@ struct FaketyApp: App {
     var body: some Scene {
         // Manage all windows of an instance of the application
         WindowGroup {
-            TripleColumnView()
+            NavigationSplitTriple()
                 .environment(applicationData)
         }
     }

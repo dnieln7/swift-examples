@@ -1,5 +1,5 @@
 //
-//  ConcurrencyView.swift
+//  BasicConcurrencyView.swift
 //  Fakety
 //
 //  Created by Daniel Nolasco on 30/10/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ConcurrencyView: View {
+struct BasicConcurrencyView: View {
     var body: some View {
         VStack {
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -43,5 +43,5 @@ struct ConcurrencyView: View {
 }
 
 #Preview {
-    ConcurrencyView()
+    BasicConcurrencyView()
 }

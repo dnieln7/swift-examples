@@ -1,5 +1,5 @@
 //
-//  UniversalInterfaceView.swift
+//  NavigationSplitDouble.swift
 //  Fakety
 //
 //  Created by Daniel Nolasco on 28/10/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UniversalInterfaceView: View {
+struct NavigationSplitDouble: View {
     @Environment(ApplicationData.self) private var applicationData: ApplicationData
 
     @State private var selectedBook: Book? = nil
@@ -96,6 +96,6 @@ fileprivate struct BookDetailPlaceHolderView: View {
 }
 
 #Preview {
-    UniversalInterfaceView()
+    NavigationSplitDouble()
         .environment(ApplicationData())
 }

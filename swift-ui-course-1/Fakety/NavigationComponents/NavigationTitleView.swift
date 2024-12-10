@@ -1,5 +1,5 @@
 //
-//  MultipleViewsView.swift
+//  NavigationTitleView.swift
 //  Fakety
 //
 //  Created by Daniel Nolasco on 22/10/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MultipleViewsView: View {
+struct NavigationTitleView: View {
     var body: some View {
         NavigationStack {
             ButtonsView()
@@ -18,6 +18,6 @@ struct MultipleViewsView: View {
 }
 
 #Preview {
-    MultipleViewsView()
+    NavigationTitleView()
         .environment(ApplicationData())
 }

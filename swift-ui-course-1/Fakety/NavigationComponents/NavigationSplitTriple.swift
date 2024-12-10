@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TripleColumnView: View {
+struct NavigationSplitTriple: View {
     @State private var visibility: NavigationSplitViewVisibility = .automatic
 
     @State private var optionsToColors: Dictionary<String, [Color]> = [
@@ -78,5 +78,5 @@ struct TripleColumnView: View {
 }
 
 #Preview {
-    TripleColumnView()
+    NavigationSplitTriple()
 }
