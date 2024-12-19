@@ -56,6 +56,9 @@ struct ReminderListTileView: View {
                 }
         }
         .contentShape(Rectangle()) // Needeed to make the entire HStack clickable
+        .onAppear {
+            checked = reminder.isCompleted
+        }
         .onTapGesture {
             onAction(.onClick(reminder))
         }

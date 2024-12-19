@@ -11,22 +11,40 @@ struct HomeView: View {
     @FetchRequest(sortDescriptors: [])
     private var myListFetchedResults: FetchedResults<MyList>
 
+    @FetchRequest(sortDescriptors: [])
+    private var reminderSearchResults: FetchedResults<Reminder>
+
     @State private var isPresented: Bool = false
+    @State private var search: String = ""
+    @State private var isSearching: Bool = false
 
     var body: some View {
         NavigationStack {
             VStack {
-                MyListView(myLists: myListFetchedResults)
-                Spacer()
-                Button(
-                    action: { isPresented.toggle() },
-                    label: {
-                        Text("Add List")
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                            .font(.headline)
-                    }
-                )
-                .padding()
+                ScrollView {
+                    MyListView(myLists: myListFetchedResults)
+                    Button(
+                        action: { isPresented.toggle() },
+                        label: {
+                            Text("Add List")
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .font(.headline)
+                        }
+                    )
+                    .padding()
+                }
+            }
+            .navigationTitle("Reminders")
+            .padding()
+            .onChange(of: search) { _, query in
+                isSearching = !query.isEmptyOrWhitespace
+                reminderSearchResults.nsPredicate = ReminderService.getRemindersByQuery(
+                    query: query
+                ).predicate
+            }
+            .overlay(alignment: .center) {
+                ReminderListView(reminders: reminderSearchResults)
+                    .opacity(isSearching ? 1.0 : 0.0)
             }
             .sheet(isPresented: $isPresented) {
                 NavigationView { // Needed for the toolbar to be displayed
@@ -42,7 +60,7 @@ struct HomeView: View {
                 }
             }
         }
-        .padding()
+        .searchable(text: $search)
     }
 }
 

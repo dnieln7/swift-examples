@@ -40,6 +40,14 @@ class ReminderService {
 
         return fetchRequest
     }
+    
+    static func getRemindersByQuery(query: String) -> NSFetchRequest<Reminder> {
+        let fetchRequest = Reminder.fetchRequest()
+        fetchRequest.sortDescriptors = []
+        fetchRequest.predicate = NSPredicate(format: "title CONTAINS[cd] %@", query)
+        
+        return fetchRequest
+    }
 
     static func updateReminder(reminder: Reminder, reminderEditConfig: ReminderEditConfig) throws -> Bool {
         
