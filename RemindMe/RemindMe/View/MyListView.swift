@@ -8,22 +8,29 @@
 import SwiftUI
 
 struct MyListView: View {
-    let myList: FetchedResults<MyList>
+    let myLists: FetchedResults<MyList>
 
     var body: some View {
         NavigationStack {
-            if myList.isEmpty {
+            if myLists.isEmpty {
                 Spacer()
                 Text("No reminders found")
             } else {
-                ForEach(myList) { list in
+                ForEach(myLists) { list in
                     VStack {
-                        MyListListTileView(myList: list)
-                            .frame(maxWidth:.infinity, alignment: .trailing)
-                            .padding([.leading], 10)
-                            .font(.title3)
+                        NavigationLink(value: list) {
+                            MyListListTileView(myList: list)
+                                .frame(maxWidth:.infinity, alignment: .trailing)
+                                .padding([.leading], 10)
+                                .font(.title3)
+                        }
                         Divider()
                     }
+                }
+                .scrollContentBackground(.hidden)
+                .navigationDestination(for: MyList.self) { list in
+                    MyListDetailView(myList: list)
+                        .navigationTitle(list.name)
                 }
             }
         }

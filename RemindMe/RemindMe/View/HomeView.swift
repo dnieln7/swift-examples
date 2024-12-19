@@ -9,14 +9,14 @@ import SwiftUI
 
 struct HomeView: View {
     @FetchRequest(sortDescriptors: [])
-    private var myListResults: FetchedResults<MyList>
+    private var myListFetchedResults: FetchedResults<MyList>
 
     @State private var isPresented: Bool = false
 
     var body: some View {
         NavigationStack {
             VStack {
-                MyListView(myList: myListResults)
+                MyListView(myLists: myListFetchedResults)
                 Spacer()
                 Button(
                     action: { isPresented.toggle() },
