@@ -11,5 +11,10 @@ import CoreData
 @objc(MyList)
 public class MyList: NSManagedObject {
     
+    var remindersAsArray: [Reminder] {
+        reminders.allObjects.compactMap { object in
+            (object as! Reminder)
+        }
+    }
 }
 

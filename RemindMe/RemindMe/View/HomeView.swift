@@ -14,14 +14,91 @@ struct HomeView: View {
     @FetchRequest(sortDescriptors: [])
     private var reminderSearchResults: FetchedResults<Reminder>
 
+    @FetchRequest(fetchRequest: ReminderService.remindersByStatType(reminderStatType: .today))
+    private var todayReminders: FetchedResults<Reminder>
+
+    @FetchRequest(fetchRequest: ReminderService.remindersByStatType(reminderStatType: .scheduled))
+    private var scheduledReminders: FetchedResults<Reminder>
+
+    @FetchRequest(fetchRequest: ReminderService.remindersByStatType(reminderStatType: .completed))
+    private var completedReminders: FetchedResults<Reminder>
+
+    @FetchRequest(fetchRequest: ReminderService.remindersByStatType(reminderStatType: .all))
+    private var allReminders: FetchedResults<Reminder>
+
     @State private var isPresented: Bool = false
     @State private var search: String = ""
     @State private var isSearching: Bool = false
+    @State private var reminderStatsValues: ReminderStatsValues = ReminderStatsValues()
+
+    private var reminderStatsBuilder: ReminderStatsBuilder = ReminderStatsBuilder()
 
     var body: some View {
         NavigationStack {
             VStack {
                 ScrollView {
+                    HStack {
+                        NavigationLink(
+                            destination: {
+                                ReminderListView(reminders: todayReminders)
+                            },
+                            label: {
+                                ReminderStatsView(
+                                    icon: "calendar",
+                                    iconColor: .red,
+                                    title: "Today",
+                                    count: reminderStatsValues.todayCount
+                                )
+                            }
+                        )
+
+                        NavigationLink(
+                            destination: {
+                                ReminderListView(reminders: allReminders)
+                            },
+                            label: {
+                                ReminderStatsView(
+                                    icon: "tray.circle.fill",
+                                    iconColor: .yellow,
+                                    title: "All",
+                                    count: reminderStatsValues.allCount
+                                )
+                            }
+                        )
+                    }
+                    HStack {
+                        NavigationLink(
+                            destination: {
+                                ReminderListView(reminders: scheduledReminders)
+                            },
+                            label: {
+                                ReminderStatsView(
+                                    icon: "calendar.circle.fill",
+                                    iconColor: .blue,
+                                    title: "Scheduled",
+                                    count: reminderStatsValues.scheduledCount
+                                )
+                            }
+                        )
+                        NavigationLink(
+                            destination: {
+                                ReminderListView(reminders: completedReminders)
+                            },
+                            label: {
+                                ReminderStatsView(
+                                    icon: "checkmark.circle.fill",
+                                    iconColor: .green,
+                                    title: "Completed",
+                                    count: reminderStatsValues.completedCount
+                                )
+                            }
+                        )
+                    }
+                    Text("My Lists")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.largeTitle)
+                        .bold()
+                        .padding()
                     MyListView(myLists: myListFetchedResults)
                     Button(
                         action: { isPresented.toggle() },
@@ -41,6 +118,9 @@ struct HomeView: View {
                 reminderSearchResults.nsPredicate = ReminderService.getRemindersByQuery(
                     query: query
                 ).predicate
+            }
+            .onAppear {
+                reminderStatsValues = reminderStatsBuilder.build(myListResults: myListFetchedResults)
             }
             .overlay(alignment: .center) {
                 ReminderListView(reminders: reminderSearchResults)

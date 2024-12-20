@@ -19,4 +19,16 @@ extension Date {
     var dateComponents: DateComponents {
         return Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: self)
     }
+    
+    func minusDays(_ days: Int) -> Date {
+        return addingTimeInterval(-TimeInterval(days) * 24 * 60 * 60)
+    }
+    
+    func plusDays(_ days: Int) -> Date {
+        return addingTimeInterval(TimeInterval(days) * 24 * 60 * 60)
+    }
+    
+    func atStartOfDay() -> Date {
+        return Calendar.current.startOfDay(for: self)
+    }
 }
