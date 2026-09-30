@@ -1,0 +1,222 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%lld item" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld item"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld items"
+                }
+              }
+            }
+          }
+        },
+        "es" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld objeto"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld objetos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Actions" : {
+
+    },
+    "Back" : {
+
+    },
+    "Basic" : {
+
+    },
+    "Browser was opened" : {
+
+    },
+    "Bye" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adios"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+
+    },
+    "Change greeting" : {
+
+    },
+    "Content" : {
+
+    },
+    "Counter" : {
+
+    },
+    "Counter: %lld" : {
+
+    },
+    "Create" : {
+
+    },
+    "Create a new file" : {
+
+    },
+    "Editor" : {
+
+    },
+    "Enter your message" : {
+
+    },
+    "Files" : {
+
+    },
+    "Focus" : {
+
+    },
+    "get data" : {
+
+    },
+    "get json" : {
+
+    },
+    "Go" : {
+
+    },
+    "Go to sender" : {
+
+    },
+    "Grouped" : {
+
+    },
+    "Hello" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hola"
+          }
+        }
+      }
+    },
+    "Hello to %@" : {
+      "comment" : "This is a welcome message",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hola a %@"
+          }
+        }
+      }
+    },
+    "Increase count" : {
+
+    },
+    "Input" : {
+
+    },
+    "input: %@" : {
+
+    },
+    "Listener" : {
+
+    },
+    "Media" : {
+
+    },
+    "Message: " : {
+
+    },
+    "Name" : {
+
+    },
+    "New Document" : {
+
+    },
+    "New file" : {
+
+    },
+    "Notification Type" : {
+
+    },
+    "Open in app browser" : {
+
+    },
+    "Open incomplete" : {
+
+    },
+    "Open link" : {
+
+    },
+    "Open web" : {
+
+    },
+    "Send" : {
+
+    },
+    "Sender" : {
+
+    },
+    "Start timer" : {
+
+    },
+    "Stop timer" : {
+
+    },
+    "Summary" : {
+
+    },
+    "This is an english text" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este es un texto en español"
+          }
+        }
+      }
+    },
+    "Times the keyboard has been shown: %lld" : {
+
+    },
+    "Title" : {
+
+    },
+    "Total: %lld" : {
+
+    },
+    "url" : {
+
+    },
+    "URLSession" : {
+
+    }
+  },
+  "version" : "1.0"
+}
